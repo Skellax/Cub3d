@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 13:00:33 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/11 09:35:13 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/12 13:50:15 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -275,6 +275,7 @@ int 	check_map_char(t_game *game);
 int		check_char_map_bonus(t_game *game);
 int		check_zeros(t_game *game);
 int 	check_parameters_map(t_game *game);
+int		index_last_line(t_game *game);
 
 
 

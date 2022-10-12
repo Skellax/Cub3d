@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_char_map.c                                   :+:      :+:    :+:   */
+/*   index_last_line.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 14:05:24 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/12 13:50:01 by mfuhrman         ###   ########.fr       */
+/*   Created: 2022/10/12 12:37:10 by mfuhrman          #+#    #+#             */
+/*   Updated: 2022/10/12 12:49:20 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int check_map_char(t_game *game)
+int index_last_line(t_game *game)
 {
     int i;
-    int j;
+    int size;
 
-    i = -1;
-    j = -1;
-    while (game->map.tab[++i])
-    {
-        while (game->map.tab[i][++j])
-        {
-            if (find_char(game->map.tab[i][j], " \t01NSEW") == 0)
-                return (0);
-            printf("i = %d, j = %d\n", i, j);
-        }
-        j = -1;
-    }
-    printf("-------check_map_char_ok------\n");
-    return (1);
+    i = 0;
+    while (game->map.tab[i])
+        i++;
+    size = i;
+    return (size);
 }
