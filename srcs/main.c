@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:37:22 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/11 09:36:13 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/12 09:01:26 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,33 +16,14 @@ int main (int argc, char **argv)
 {   
     t_image images;
 
-    //images.game.rapport_player = 100;
-
-    
-
-/*
-    t_img	image;
-
-	image.mlx_img = mlx_xpm_file_to_image(images->cube.mlx_ptr, "./images_xpm/text_NO.xpm", &image.size.x, &image.size.y);
-	image.addr = mlx_get_data_addr(image.mlx_img,
-			&(image.bpp),
-			&(image.line_len), &(image.endian));
-*/
-
     srand(time(0));
-
     check_files_map(argc, argv);
     init_map(&images.game, argv[1]);
     check_parameters_map(&images.game);
     init_var_player(&images.game);
     check_nb_player(&images.game);
-
     init_game(&images.game);
-
-
     print_map(&images.game);
-//printf("*********  stop ****-----****\n");
-
     init_legend(&images.game, &images.legend);
     init_cube(&images.game, &images.cube);
 
@@ -82,7 +63,7 @@ int main (int argc, char **argv)
     # endif
 
    // mlx_loop_hook(images.game.win_ptr, ft_input_2, &images);
-    mlx_loop_hook(images.legend.mlx_ptr, *reprint_pos, &images.game);//
+  //  mlx_loop_hook(images.legend.mlx_ptr, *reprint_pos, &images.game);//
     mlx_hook(images.game.win_ptr, 2, 1L<<0, *ft_input, &images);
     mlx_hook(images.game.win_ptr, 17, 1L << 17, ft_close, &images);
     mlx_hook(images.game.win_ptr, 6, 1, *move_test, &images);

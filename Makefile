@@ -6,7 +6,7 @@
 #    By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 12:25:59 by pwolff            #+#    #+#              #
-#    Updated: 2022/10/12 13:50:56 by mfuhrman         ###   ########.fr        #
+#    Updated: 2022/10/12 14:38:58 by mfuhrman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRC		= srcs/init_game.c  srcs/ft_close.c srcs/init_map.c srcs/error_msg.c srcs/m
 	srcs/init_cube.c srcs/anim_cub3D.c srcs/img_pix_put.c \
 	srcs/anim_direction.c srcs/movements_mouse.c srcs/move_test.c srcs/ft_calc_texture.c \
 	srcs/ft_init_text.c srcs/anim_cub3D_2.c srcs/find_char.c srcs/check_border_map.c \
-	srcs/check_char_map.c srcs/check_zeros.c srcs/check_parameters_map.c srcs/index_last_line.c
+	srcs/check_char_map.c srcs/check_zeros.c srcs/check_parameters_map.c srcs/index_last_line.c \
+	srcs/anim_cub3D_3.c
 
 SRC_B = srcs/check_char_map.bonus.c srcs/check_border_map_bonus.c
 

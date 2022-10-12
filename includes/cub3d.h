@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 13:00:33 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/12 13:50:15 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/12 14:39:52 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,6 +202,14 @@ typedef struct s_ray
 
 	int hit; //was there a wall hit?
     int side; //was a NS or a EW wall hit?
+
+	int	index;
+	int lineHeight;
+	int drawStart;
+	int drawEnd;
+	int	x;
+
+
 } t_ray;
 
 typedef struct s_game
@@ -263,11 +271,13 @@ int		anim_cub3D(t_image *images);
 void	anim_direction(t_game *legend, int key);
 int		movements_mouse(int button, int x, int y, t_image *images);
 int		move_test(int x, int y, t_image *images);
-int 	ft_calc_texture(double x, int i, int height, t_image *images, int face);
+int 	ft_calc_texture(double x, int i, t_image *images, int face);
 void	ft_init_text(t_game *cube);
 int		ft_input_2(t_image *images);
 void    ft_init_var_3D_1(t_game *cube, int x);
 void    ft_calc_dist(t_image *images, t_game *cube, char *texture_hit);
+void    ft_choice_texture(t_image *images, t_game *cube, char *texture_hit);
+void    ft_clear_logo_direction(t_image *images, t_game *cube);
 int		find_char(char p, char *caracters);
 int		check_border_map(t_game *game);
 int		check_border_map_bonus(t_game *game);
@@ -275,7 +285,9 @@ int 	check_map_char(t_game *game);
 int		check_char_map_bonus(t_game *game);
 int		check_zeros(t_game *game);
 int 	check_parameters_map(t_game *game);
-int		index_last_line(t_game *game);
+int 	index_last_line(t_game *game);
+
+
 
 
 
