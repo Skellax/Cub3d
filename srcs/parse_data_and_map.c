@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:26 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 11:11:44 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:32:12 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
     temp = ft_strdup("");
     while (read_str)
     {
-        printf("%s\n", read_str);
+       // printf("%s\n", read_str);
         if (game->parse.read_map == 0)
             parse_text_and_color(read_str, cube, game);
         else if (game->parse.read_map == 1)
@@ -42,7 +42,9 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
             temp = ft_strjoin(temp2, read_str);
             free (temp2);
             i++;            
-        }      
+        } 
+        printf("parse SUD = %d\n", game->parse.flag_S);
+        printf("texture Nord = %s\n", cube->name_text[0]);     
         read_str = get_next_line(map_fd);
     }
     close (map_fd);

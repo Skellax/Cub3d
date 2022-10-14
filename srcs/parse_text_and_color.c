@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:32:23 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 11:13:09 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/14 13:27:28 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@ int find_texture(char *path, int index, t_game *cube)
 
     i = -1;
     temp = ft_split(path, ' ');
-    if (!temp[1] || temp[2])
-        error_msg("Erreur : impossible de charger la texture !");
-    cube->name_text[index] = temp[1];
+    printf(" temp = %s\n", temp[1]);
+    if (!temp[1]|| temp[2])
+        error_msg("Erreur : impossible de charger la texture !"); 
+    cube->name_text[index] = ft_strdup(temp[1]);
+    printf(" textcube = %s\n", cube->name_text[index]);
     while (temp[++i])
         free (temp[i]);
     free (temp);
@@ -36,6 +38,7 @@ int find_cell(char *path, t_game *cube)
 
     i = -1;
     temp = ft_split(path, ' ');
+    printf(" temp = %s\n", temp[1]);
     if (!temp[1] || temp[2])
         error_msg("Erreur : impossible de charger la couleur du plafond !1");
     temp2 = ft_split (temp[1], ',');
@@ -86,6 +89,7 @@ int find_floor(char *path, t_game *cube)
 
 void parse_text_and_color(char *path, t_game *cube, t_game *game)
 {
+    
     if (path[0] == 'N' && path[1] == 'O')
         game->parse.flag_N += find_texture(path, 0, cube);
     else if (path[0] == 'S' && path[1] == 'O')
