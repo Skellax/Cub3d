@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:26 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 13:32:12 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:28:24 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
             temp = ft_strjoin(temp2, read_str);
             free (temp2);
             i++;            
-        } 
-        printf("parse SUD = %d\n", game->parse.flag_S);
-        printf("texture Nord = %s\n", cube->name_text[0]);     
+        }     
         read_str = get_next_line(map_fd);
     }
     close (map_fd);
@@ -64,9 +62,19 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
 	while (game->map.tab[i])
 	{
 		printf(" i = %d   lines = %d\n", i, game->map.lines);
-		printf("%s", game->map.tab[i]);
+		printf("%s\n", game->map.tab[i]);
 		i++;
 
 	}
-		write(1, "******\n", 7); 
+		write(1, "******\n", 7);
+
+    printf("texture Nord = %s\n", cube->name_text[0]); 
+    printf("%zu\n", ft_strlen(cube->name_text[0])) ;
+    printf("texture SUD = %s\n", cube->name_text[1]); 
+    printf("%zu\n", ft_strlen(cube->name_text[1])) ;
+    printf("texture OUEST = %s\n", cube->name_text[2]); 
+    printf("%zu\n", ft_strlen(cube->name_text[2])) ;
+    printf("texture WEST = %s\n", cube->name_text[3]); 
+    printf("%zu\n", ft_strlen(cube->name_text[3])) ;
 }
+

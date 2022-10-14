@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 13:00:33 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 10:01:00 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:42:59 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # define CUB3D_H
 
 # define DEFINITION_TEXTURES 600
-# define NB_TEXTURES 6
+# define NB_TEXTURES 4
 
 /*  TAILLES IMAGES
 

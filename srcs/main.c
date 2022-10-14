@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:37:22 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 09:49:26 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/14 14:35:09 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,28 +28,28 @@ int main (int argc, char **argv)
     init_legend(&images.game, &images.legend);
     init_cube(&images.game, &images.cube);
 
-    //    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_NO.xpm");
-    //  images.cube.name_text[0] = ft_strjoin("","./images_xpm/Cube3D_2b.xpm");
-    // images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_SO.xpm");
-    // images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_WE.xpm");
-    //   images.cube.name_text[2] = ft_strjoin("","./images_xpm/Cube3D_2b.xpm");
+       // images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_NO.xpm");
+      //images.cube.name_text[0] = ft_strjoin("","./images_xpm/Cube3D_2b.xpm");
+     //images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_SO.xpm");
+     //images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_WE.xpm");
+     // images.cube.name_text[2] = ft_strjoin("","./images_xpm/Cube3D_2b.xpm");
 
-    //  images.cube.name_text[3] = ft_strjoin("","./images_xpm/text_EA.xpm");
+    //images.cube.name_text[3] = ft_strjoin("","./images_xpm/text_EA.xpm");
 
-/*
-    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text__metal+structure+03_d100.xpm");
+
+    /*images.cube.name_text[0] = ft_strjoin("","./images_xpm/text__metal+structure+03_d100.xpm");
     images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_Marble-125_1024.xpm");
     images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_Com_BrickFacade0004_1_seamless_S.xpm");
     images.cube.name_text[3] = ft_strjoin("","./images_xpm/txt_laine.xpm");
 */
- /*   images.cube.name_text[4] = ft_strjoin("","./images_xpm/text_star_24.xpm");
-    images.cube.name_text[5] = ft_strjoin("","./images_xpm/text_star_23.xpm");
+   //images.cube.name_text[4] = ft_strjoin("","./images_xpm/text_star_24.xpm");
+    //images.cube.name_text[5] = ft_strjoin("","./images_xpm/text_star_23.xpm");
 
-    images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_star_14.xpm");
+ /*   images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_star_14.xpm");
     images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_star_20.xpm");
     images.cube.name_text[3] = ft_strjoin("","./images_xpm/text_star_19.xpm");
-    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_star_16.xpm"); */
-
+    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_star_16.xpm"); 
+*/
 
 
     ft_init_text(&images.cube); 
