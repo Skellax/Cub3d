@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 13:37:22 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/12 09:01:26 by pwolff           ###   ########.fr       */
+/*   Updated: 2022/10/14 09:49:26 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int main (int argc, char **argv)
 
     srand(time(0));
     check_files_map(argc, argv);
-    init_map(&images.game, argv[1]);
+    //init_map(&images.game, argv[1]);
+    parse_data_and_map(&images.game, &images.cube, argv[1]);
     check_parameters_map(&images.game);
     init_var_player(&images.game);
     check_nb_player(&images.game);
@@ -41,13 +42,13 @@ int main (int argc, char **argv)
     images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_Com_BrickFacade0004_1_seamless_S.xpm");
     images.cube.name_text[3] = ft_strjoin("","./images_xpm/txt_laine.xpm");
 */
-    images.cube.name_text[4] = ft_strjoin("","./images_xpm/text_star_24.xpm");
+ /*   images.cube.name_text[4] = ft_strjoin("","./images_xpm/text_star_24.xpm");
     images.cube.name_text[5] = ft_strjoin("","./images_xpm/text_star_23.xpm");
 
     images.cube.name_text[1] = ft_strjoin("","./images_xpm/text_star_14.xpm");
     images.cube.name_text[2] = ft_strjoin("","./images_xpm/text_star_20.xpm");
     images.cube.name_text[3] = ft_strjoin("","./images_xpm/text_star_19.xpm");
-    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_star_16.xpm");
+    images.cube.name_text[0] = ft_strjoin("","./images_xpm/text_star_16.xpm"); */
 
 
 
