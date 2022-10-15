@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:32:23 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 14:45:47 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:32:49 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,17 @@ int find_cell(char *path, t_game *cube)
 
     i = -1;
     temp = ft_split(path, ' ');
-    printf(" temp = %s\n", temp[1]);
+    printf(" temp c = %s\n", temp[1]);
     if (!temp[1] || temp[2])
-        error_msg("Erreur : impossible de charger la couleur du plafond !1");
+        error_msg("Error:\nimpossible de charger la couleur du plafond !");
     temp2 = ft_split (temp[1], ',');
     if (!temp2[2] || temp2[3])
-        error_msg("Erreur : impossible de charger la couleur du plafond !2");
+        error_msg("Error:\nimpossible de charger la couleur du plafond !");
     cube->r_c = ft_atoi(temp2[0]);
     cube->g_c = ft_atoi(temp2[1]);
     cube->b_c = ft_atoi(temp2[2]);
     if (!check_color(cube->r_c,cube->g_c,cube->b_c))
-        error_msg("Erreur : impossible de charger la couleur du plafond !3");
+        error_msg("Error:\nimpossible de charger la couleur du plafond !");
     while (temp[++i])
         free(temp[i]);
     free (temp);
@@ -68,16 +68,17 @@ int find_floor(char *path, t_game *cube)
 
     i = -1;
     temp = ft_split(path, ' ');
+    printf(" temp f = %s\n", temp[1]);
     if (!temp[1] || temp[2])
-        error_msg("Erreur : impossible de charger la couleur du sol !1");
+        error_msg("Error:\nimpossible de charger la couleur du sol !");
     temp2 = ft_split (temp[1], ',');
     if (!temp2[2] || temp2[3])
-        error_msg("Erreur : impossible de charger la couleur du sol !2");
+        error_msg("Error:\nimpossible de charger la couleur du sol !");
     cube->r_f = ft_atoi(temp2[0]);
     cube->g_f = ft_atoi(temp2[1]);
     cube->b_f = ft_atoi(temp2[2]);
     if (!check_color(cube->r_f,cube->g_f,cube->b_f))
-        error_msg("Erreur : impossible de charger la couleur du sol !3");
+        error_msg("Error:\nimpossible de charger la couleur du sol !");
     while (temp[++i])
         free(temp[i]);
     free (temp);
@@ -105,6 +106,6 @@ void parse_text_and_color(char *path, t_game *cube, t_game *game)
         game->parse.flag_F += find_floor(path, cube);
     else if (parse_flag(game))
         game->parse.read_map = 1;
-    //else if ((!empty_line(path)) && game->parse.read_map == 0)
-     // error_msg("la map doit être en derniere position !");    
+    else if ((!empty_line(path)) && game->parse.read_map == 0)
+        error_msg("Error:\nimpossible d'ouvir la map!");    
 }

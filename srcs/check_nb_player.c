@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 08:51:51 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/07/27 10:15:15 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/15 09:23:18 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void check_nb_player(t_game *game)
         i++;   
     }
     if (game->map.nb_player != 1)
-        error_msg("ERREUR, aucun ou plus de 1 joueur!");
+        error_msg("Error \n, aucun ou plus de 1 joueur!");
 }

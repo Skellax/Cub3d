@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:15:29 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 10:56:10 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/15 08:58:07 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,14 @@ int parse_flag(t_game *game)
 
 int empty_line(char *line)
 {
-    while (*line++)
+    int i;
+
+    i = 0;
+    while (line[i])
     {
-        if (*line != ' ' || *line != '\t' || *line != '\n')
+        if (line[i] == ' ' || line[i] == '\t' || line[i] == '\n')
+            i++;
+        else
             return (0);
     }
     return (1);

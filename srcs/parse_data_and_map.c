@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 12:39:26 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 14:28:24 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/15 10:04:56 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
     map_fd = open(read_str, O_RDONLY);
     free(read_str);
     if (map_fd == -1)
-        error_msg("La map n' a pas pu s'ouvir !");
+        error_msg("Error:\nLa map n' a pas pu s'ouvir !");
     read_str = get_next_line(map_fd);
     temp = ft_strdup("");
     while (read_str)
@@ -37,7 +37,7 @@ void parse_data_and_map(t_game *game, t_game *cube, char *argv)
         else if (game->parse.read_map == 1)
         {
             if (empty_line(read_str))
-                error_msg("la map contient une ligne vide !");
+                error_msg("Error:\nla map contient une ligne vide !");
             temp2 = temp;
             temp = ft_strjoin(temp2, read_str);
             free (temp2);
