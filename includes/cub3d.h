@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 13:00:33 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/14 14:42:59 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/16 14:26:46 by pwolff           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 # define CUB3D_H
 
 # define DEFINITION_TEXTURES 600
-# define NB_TEXTURES 4
+# define NB_TEXTURES 11
+# define NB_ANIME 2  // animation arme
 
 /*  TAILLES IMAGES
 
@@ -62,7 +63,7 @@
 
 
 # else   // LINUX
-#  include <mlx.h>
+//#  include <mlx.h>
 #  define TOUCH_A 113  // Q
 #  define TOUCH_W 122  // Z
 #  define TOUCH_S 115  // S
@@ -76,7 +77,7 @@
 #  define DEGREE_Y1 256
 #  define DEGREE_X2 146
 #  define DEGREE_Y2 291
-//# include "../mlx_linux/mlx.h"
+# include "../mlx_linux/mlx.h"
 # endif
 
 
@@ -240,13 +241,20 @@ typedef struct s_game
 	int	g_f; // couleur verte pour sol
 	int	b_f; // couleur bleu pour sol
 
+	t_img	*ptr_texture; // pointeur sur texture à afficher
 	t_map	map;
 	t_ray	r;
 	t_img	img;  // pour mlx_new_image
 	t_img	img_text[NB_TEXTURES];
-	t_parse	parse;
 	double	*apos_game; // pour boussole
 	int		rapport_player;
+
+	t_parse	parse;
+	char	*sprite[NB_ANIME][2]; // animation arme
+	int		nb_sprite;
+	int		dir_sprite;
+
+	char	*read_str;
 } t_game;
 
 typedef struct s_image
@@ -262,21 +270,21 @@ typedef struct s_image
 // FUNCTIONS
 
 void	init_game(t_game *game);
-void	init_map(t_game *game, char *argv);
+//void	init_map(t_game *game, char *argv);
 int		print_map(t_game *game); 
 int		main(int argc, char **argv);
 void	error_msg(char *msg);
 int		ft_close(t_image *images);
 int		find_player(char p, char *characters);
-void	draw_square(t_game *game, int posx, int posy, int side, int color);
+void	draw_square(t_game *game, int posx, int posy, int color);
 void	update(t_image *images, int key);
 void	move_player(t_game *game, double nb, double alpha);
 int		count_char(char *str, char c);
 void	check_nb_player(t_game *game);
 void	init_player_position(t_game *game, char *line, int y);
-void	check_files_map(int argc, char **argv);
+void	check_files_map(t_game *game, int argc, char **argv);
 void	init_var_player(t_game *game);
-void    draw_player(t_game *game, int posx, int posy, int side, int color);
+void    draw_player(t_game *game, int posx, int posy, int color);
 int		ft_input(int key, t_image *images);
 int		reprint_pos(t_game *game);
 void	print_background(t_game *game);
@@ -287,17 +295,17 @@ void	img_pix_put(t_game *game, int x, int y, int color);
 int		encode_rgb(uint8_t red, uint8_t green, uint8_t blue);
 void    init_legend(t_game *game, t_game *legend);
 int		anim_legend(t_game *legend);
-void    draw_circle(t_game *image, int x, int y, int r, int color);
-void    draw_circle_bis(t_game *image, int x, int y, int r, int color);
+void    draw_circle(t_game *image, int r, int color);
+void    draw_circle_bis(t_game *image, int r, int color);
 void	init_cube(t_game *game, t_game *cube);
-int		anim_cub3D(t_image *images);
+int		anim_cub3d(t_image *images);
 void	anim_direction(t_game *legend, int key);
 int		movements_mouse(int button, int x, int y, t_image *images);
 int		move_test(int x, int y, t_image *images);
 int 	ft_calc_texture(double x, int i, t_image *images, int face);
 void	ft_init_text(t_game *cube);
 int		ft_input_2(t_image *images);
-void    ft_init_var_3D_1(t_game *cube, int x);
+void    ft_init_var_3d_1(t_game *cube, int x);
 void    ft_calc_dist(t_image *images, t_game *cube, char *texture_hit);
 void    ft_choice_texture(t_image *images, t_game *cube, char *texture_hit);
 void    ft_clear_logo_direction(t_image *images, t_game *cube);
@@ -309,7 +317,7 @@ int		check_char_map_bonus(t_game *game);
 int		check_zeros(t_game *game);
 int 	check_parameters_map(t_game *game);
 int 	index_last_line(t_game *game);
-void	init_parse(t_game *game);
+//void	init_parse(t_game *game);
 int 	parse_flag(t_game *game);
 int 	empty_line(char *line);
 int 	check_color(int r, int g, int b);
@@ -317,7 +325,8 @@ int 	find_texture(char *path, int index, t_game *cube);
 int 	find_cell(char *path, t_game *cube);
 int 	find_floor(char *path, t_game *cube);
 void 	parse_text_and_color(char *path, t_game *cube, t_game *game);
-void 	parse_data_and_map(t_game *game, t_game *cube, char *argv);
+void 	parse_data_and_map(t_game *game, t_game *cube);
+void	parse_data_and_map2(t_game *game, t_game *cube);
 
 
 
