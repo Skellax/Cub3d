@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements_mouse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pwolff <pwolff@student.42mulhouse.fr>      +#+  +:+       +#+        */
+/*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:46:32 by pwolff            #+#    #+#             */
-/*   Updated: 2022/10/16 09:48:43 by pwolff           ###   ########.fr       */
+/*   Updated: 2022/10/17 13:21:54 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ static void	ft_move_mouse_2(int x, t_image *images, int *key)
 	{
 		*key = TOUCH_LEFT;
 		images->cube.dir_sprite = 0;
+	}
+	else
+	{
+		*key = TOUCH_RIGHT;
+		images->cube.dir_sprite = 1;
 	}
 }
 

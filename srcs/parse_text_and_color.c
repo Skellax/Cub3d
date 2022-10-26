@@ -6,7 +6,7 @@
 /*   By: mfuhrman <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 13:32:23 by mfuhrman          #+#    #+#             */
-/*   Updated: 2022/10/17 09:20:41 by mfuhrman         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:12:35 by mfuhrman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	find_texture(char *path, int index, t_game *cube)
 	temp = ft_split(path, ' ');
 	temp[1][ft_strlen(temp[1]) - 1] = '\0';
 	if (!temp[1] || temp[2])
-		error_msg("Erreur : impossible de charger la texture !");
+		error_msg("Error:\nimpossible de charger la texture !");
 	cube->name_text[index] = ft_strdup(temp[1]);
 	while (temp[++i])
 		free (temp[i]);
